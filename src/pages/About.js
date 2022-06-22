@@ -1,31 +1,31 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import "./About.css";
-import profile_pic from "../assets/profile_pic.jpg";
-
+import Image from '../assets/profile_pic_cristian.JPG';
+  
 export default class About extends Component {
   render() {
     return (
       <div>
-        {/* <p>Design your About me page </p> */}
-        <div class="split left">
-          <div className="centered">
-            <img
-              className="profile_image"
-              src={profile_pic}
-              alt="Profile Pic"
+      <div class="split left">
+        <div className="centered">
+          <img 
+            className="profile_image"
+            alt="Profile Pic" 
+            src = {Image}
             ></img>
-          </div>
         </div>
-        <div className="split right">
-          <div className="centered">
-            <div className="name_title">Your Name</div>
-            <div className="brief_description">
-              Tell us about yourself in a few sentences. Tell us your interests
-              and say a fun fact about yourself.
-            </div>
+      </div>
+      <div className="split right">
+        <div className="centered">
+          <div className="name_title">Cristian Tavara</div>
+          <div className="brief_description">
+            <h6>I'm a Computer Science major at Brooklyn College</h6>
+            <p>I love gaining new experiences, wheter it be learning about web development or learning a new submission from side control.
+               A fun fact about me is I practice Brazilian Jiu Jitsu 🤠</p>
           </div>
         </div>
       </div>
-    );
+    </div>
+    )
   }
 }
