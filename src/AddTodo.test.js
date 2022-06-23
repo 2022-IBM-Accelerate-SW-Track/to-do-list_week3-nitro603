@@ -17,8 +17,6 @@ afterEach(() => {
 });
 
 
-
-
  test('test that App component doesn\'t render dupicate Task', () => {
   render(<App />);
  });
@@ -32,11 +30,9 @@ afterEach(() => {
  });
 
 
-
  test('test that App component can be deleted thru checkbox', () => {
   render(<App />);
  });
-
 
  test('test that App component renders different colors for past due events', () => {
   render(<App />);
