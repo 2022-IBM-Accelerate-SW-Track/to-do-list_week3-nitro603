@@ -19,7 +19,7 @@ class AddTodo extends Component {
   handleChange = (event) => {
     this.setState({
       content: event.target.value,
-      date: new Date(event).toLocaleDateString('en-US')
+      date: Date().toLocaleString('en-US')
     });
   };
   // The handleSubmit function collects the forms input and puts it into the react state.
@@ -37,6 +37,13 @@ class AddTodo extends Component {
       });
     }
   };
+  
+  handledueDate = (event) => {
+    this.setState({
+      due: new Date(event).toLocaleDateString()
+    });
+  };
+
   render() {
     return (
       // 1. When rendering a component, you can render as many elements as you like as long as it is wrapped inside
@@ -46,22 +53,25 @@ class AddTodo extends Component {
       // 3. The return should also include a button with the handleSubmit function from above that is passed into
       // an OnClick event.
       // 4. The value of the text field also should reflect the local state of this component.
-      <div>
+      <div data-testid = "new-item-button">
         <TextField
+          data-testid = "new-item-input"
           label="Add New Item"
           variant="outlined"
           onChange={this.handleChange}
           value={this.state.content}
         />
+
         <LocalizationProvider dateAdapter={AdapterDateFns}>         
-          <DesktopDatePicker
-              id="new-item-date"
-              label="Due Date"
-              value={this.date}
-              onChange={this.handleChange}
-              renderInput={(params) => <TextField {...params} />}
-          />
+        <DesktopDatePicker
+          id="new-item-date"
+          label="Due Date"
+          value={this.state.due}
+          onChange={this.handledueDate}
+          data-testid={"new-item-input"}
+          renderInput={(params) => <TextField {...params} />} />
         </LocalizationProvider>
+
         <Button
           style={{ marginLeft: "10px" }}
           onClick={this.handleSubmit}
